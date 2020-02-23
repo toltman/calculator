@@ -1,0 +1,23 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "basic calculator",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toltman/calculator.git"
+  },
+  "author": "Tim Oltman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toltman/calculator/issues"
+  },
+  "homepage": "https://github.com/toltman/calculator#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
