@@ -2,8 +2,29 @@ const buttons = document.querySelectorAll(".button");
 const operations = document.querySelectorAll(".op");
 const numbers = document.querySelectorAll(".num");
 const answer = document.querySelector(".answer");
+const equals = document.querySelector(".equals");
 let next_op = "";
 let arg1 = "";
+let state = {
+  X: 0,
+  Y: 0,
+  mode: "result",
+  equalsMode: false,
+  op: "+"
+};
+
+function executeOp() {
+  console.log("Inside executeOp");
+  if (state.op === "+") {
+    return state.X + state.Y;
+  } else if (state.op === "-") {
+    return state.X - state.Y;
+  } else if (state.op === "÷") {
+    return state.X / state.Y;
+  } else if (state.op === "×") {
+    return state.X * state.Y;
+  }
+}
 
 buttons.forEach(function(button) {
   button.addEventListener("mousedown", function() {
@@ -41,51 +62,58 @@ operations.forEach(function(operation) {
   });
 
   operation.addEventListener("click", function() {
-    if (arg1 === "") {
-      arg1 = answer.innerText;
-      answer.innerText = "0";
-      next_op = operation.innerText;
-    } else if (next_op === "+") {
-      let result = Number(arg1) + Number(answer.innerText);
-      answer.innerText = String(result);
-      arg1 = String(result);
-      next_op = operation.innerText;
-    } else if (next_op === "-") {
-      let result = Number(arg1) - Number(answer.innerText);
-      answer.innerText = String(result);
-      arg1 = String(result);
-      next_op = operation.innerText;
-    } else if (next_op === "×") {
-      console.log("times");
-      let result = Number(arg1) * Number(answer.innerText);
-      answer.innerText = String(result);
-      arg1 = String(result);
-      next_op = operation.innerText;
-    } else if (next_op === "÷") {
-      console.log("divide");
-      if (answer.innerText !== "0") {
-        let result = Number(arg1) / Number(answer.innerText);
-        answer.innerText = String(result);
-        arg1 = String(result);
-        next_op = operation.innerText;
-      } else {
-        console.log("Nice try! You can not divide by zero.");
-      }
-    }
+    state.Y = parseInt(answer.innerText);
+    let result = executeOp();
+    state.op = operation.innerText;
+    state.Y = result;
+    state.X = state.Y;
+    answer.innerText = String(state.Y);
+    state.mode = "result";
+    state.equalsMode = false;
+    console.log(state);
   });
 });
 
 numbers.forEach(function(number) {
   number.addEventListener("click", function() {
-    if (answer.innerText === "0") {
+    if (state.mode === "result") {
       answer.innerText = number.innerText;
+      state.mode = "enter";
     } else {
-      answer.innerText = answer.innerText + number.innerText;
+      if (answer.innerText === "0") {
+        answer.innerText = number.innerText;
+      } else {
+        answer.innerText = answer.innerText + number.innerText;
+      }
     }
   });
 });
 
+equals.addEventListener("click", function() {
+  if (!state.equalsMode) {
+    console.log("executeOp");
+    state.Y = parseInt(answer.innerText);
+    let result = executeOp();
+    state.X = state.Y;
+    state.Y = result;
+    answer.innerText = String(state.Y);
+    state.mode = "result";
+    state.equalsMode = true;
+  } else if (state.equalsMode) {
+    console.log("Equals Mode");
+    let result = executeOp();
+    state.Y = result;
+    answer.innerText = String(state.Y);
+    state.mode = "result";
+    state.equalsMode = true;
+  }
+});
+
 document.querySelector(".clear").addEventListener("click", function() {
-  arg1 = "";
-  answer.innerText = 0;
+  state.X = 0;
+  state.Y = 0;
+  state.mode = "result";
+  equalsMode = false;
+  op = "+";
+  answer.innerText = "0";
 });

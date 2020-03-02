@@ -1,82 +1,82 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .calc-container {
-    display: flex;
-    justify-content: center;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  display: flex;
+  justify-content: center;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .calculator {
-    width: 400px;
+  width: 400px;
 }
 
 .answer {
-    display: flex;
-    background-color: black;
-    color: white;
-    height: 80px;
-    justify-content: flex-end;
-    align-items: center;
-    font-size: 40px;
-    font-family: sans-serif;
-    padding: 25px;
+  display: flex;
+  background-color: black;
+  color: white;
+  height: 80px;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 40px;
+  font-family: sans-serif;
+  padding: 25px;
 }
 
 .calc-area {
-    display: flex;
-    width: 400px;
-    height: 500px;
+  display: flex;
+  width: 400px;
+  height: 500px;
 }
 
 .numpad {
-    display: flex;
-    width: 300px;
-    height: 500px;
-    flex-wrap: wrap-reverse;
+  display: flex;
+  width: 300px;
+  height: 500px;
+  flex-wrap: wrap-reverse;
 }
 
 .operators {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .button {
-    display: flex;
-    color: black;
-    background-color: #d8d9db;
-    border: 1px solid black;
-    height: 100px;
-    width: 100px;
-    font-size: 40px;
-    font-family: sans-serif;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  color: black;
+  background-color: #d8d9db;
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+  font-size: 40px;
+  font-family: sans-serif;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-.op {
-    display: flex;
-    background-color: #df974c;
-    color: white;
-    border: 1px solid black;
-    height: 100px;
-    width: 100px;
-    font-size: 40px;
-    font-family: sans-serif;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+.op-style {
+  display: flex;
+  background-color: #df974c;
+  color: white;
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+  font-size: 40px;
+  font-family: sans-serif;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .clear {
-    width: 200px;
+  width: 200px;
 }
 
 .zero {
-    width: 300px;
+  width: 300px;
 }
