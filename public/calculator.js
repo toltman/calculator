@@ -27,6 +27,22 @@ function executeOp(num1, num2) {
   }
 }
 
+equals.addEventListener("mousedown", function() {
+  equals.style.backgroundColor = "#0078d7";
+});
+
+equals.addEventListener("mouseup", function() {
+  equals.style.backgroundColor = "#0875c9";
+});
+
+equals.addEventListener("mouseleave", function() {
+  equals.style.backgroundColor = "#34658a";
+});
+
+equals.addEventListener("mouseover", function() {
+  equals.style.backgroundColor = "#0875c9";
+});
+
 buttons.forEach(function(button) {
   button.addEventListener("mousedown", function() {
     button.style.backgroundColor = "#8a8b8d";
