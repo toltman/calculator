@@ -29,37 +29,37 @@ function executeOp(num1, num2) {
 
 buttons.forEach(function(button) {
   button.addEventListener("mousedown", function() {
-    button.style.backgroundColor = "#aaaaaa";
+    button.style.backgroundColor = "#8a8b8d";
   });
 
   button.addEventListener("mouseup", function() {
-    button.style.backgroundColor = "lightgray";
+    button.style.backgroundColor = "#767676";
   });
 
   button.addEventListener("mouseleave", function() {
-    button.style.backgroundColor = "#d8d9db";
+    button.style.backgroundColor = "black";
   });
 
   button.addEventListener("mouseover", function() {
-    button.style.backgroundColor = "lightgray";
+    button.style.backgroundColor = "#767676";
   });
 });
 
 operations.forEach(function(operation) {
   operation.addEventListener("mousedown", function() {
-    operation.style.backgroundColor = "orange";
+    operation.style.backgroundColor = "#8a8b8d";
   });
 
   operation.addEventListener("mouseup", function() {
-    operation.style.backgroundColor = "lightsalmon";
+    operation.style.backgroundColor = "#767676";
   });
 
   operation.addEventListener("mouseleave", function() {
-    operation.style.backgroundColor = "#df974c";
+    operation.style.backgroundColor = "#333333";
   });
 
   operation.addEventListener("mouseover", function() {
-    operation.style.backgroundColor = "lightsalmon";
+    operation.style.backgroundColor = "#767676";
   });
 
   operation.addEventListener("click", function() {

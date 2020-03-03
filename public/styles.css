@@ -17,7 +17,7 @@
 
 .answer {
   display: flex;
-  background-color: black;
+  background-color: #555555;
   color: white;
   height: 80px;
   justify-content: flex-end;
@@ -47,8 +47,8 @@
 
 .button {
   display: flex;
-  color: black;
-  background-color: #d8d9db;
+  color: white;
+  background-color: black;
   border: 1px solid black;
   height: 100px;
   width: 100px;
@@ -61,7 +61,7 @@
 
 .op-style {
   display: flex;
-  background-color: #df974c;
+  background-color: #333333;
   color: white;
   border: 1px solid black;
   height: 100px;
@@ -79,4 +79,8 @@
 
 .zero {
   width: 300px;
+}
+
+.equals {
+  background-color: #34658a;
 }
