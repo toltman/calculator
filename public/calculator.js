@@ -10,19 +10,20 @@ let state = {
   Y: 0,
   mode: "result",
   equalsMode: false,
+  opMode: false,
   op: "+"
 };
 
-function executeOp() {
+function executeOp(num1, num2) {
   console.log("Inside executeOp");
   if (state.op === "+") {
-    return state.X + state.Y;
+    return num1 + num2;
   } else if (state.op === "-") {
-    return state.X - state.Y;
+    return num1 - num2;
   } else if (state.op === "÷") {
-    return state.X / state.Y;
+    return num1 / num2;
   } else if (state.op === "×") {
-    return state.X * state.Y;
+    return num1 * num2;
   }
 }
 
@@ -62,15 +63,24 @@ operations.forEach(function(operation) {
   });
 
   operation.addEventListener("click", function() {
-    state.Y = parseInt(answer.innerText);
-    let result = executeOp();
-    state.op = operation.innerText;
-    state.Y = result;
-    state.X = state.Y;
-    answer.innerText = String(state.Y);
-    state.mode = "result";
-    state.equalsMode = false;
-    console.log(state);
+    if (!state.opMode) {
+      if (state.equalsMode) {
+        state.Y = parseInt(answer.innerText);
+      } else if (!state.equalsMode) {
+        state.Y = parseInt(answer.innerText);
+        let result = executeOp(state.X, state.Y);
+        state.Y = result;
+      }
+      state.op = operation.innerText;
+      state.X = state.Y;
+      answer.innerText = String(state.Y);
+      state.mode = "result";
+      state.equalsMode = false;
+    } else if (state.opMode) {
+      // do nothing
+      state.op = operation.innerText;
+    }
+    state.opMode = true;
   });
 });
 
@@ -86,27 +96,31 @@ numbers.forEach(function(number) {
         answer.innerText = answer.innerText + number.innerText;
       }
     }
+    state.opMode = false;
   });
 });
 
 equals.addEventListener("click", function() {
   if (!state.equalsMode) {
-    console.log("executeOp");
     state.Y = parseInt(answer.innerText);
-    let result = executeOp();
+    let result = executeOp(state.X, state.Y);
     state.X = state.Y;
     state.Y = result;
     answer.innerText = String(state.Y);
     state.mode = "result";
     state.equalsMode = true;
+
+    console.log(state);
   } else if (state.equalsMode) {
-    console.log("Equals Mode");
-    let result = executeOp();
+    let result = executeOp(state.Y, state.X);
     state.Y = result;
     answer.innerText = String(state.Y);
     state.mode = "result";
     state.equalsMode = true;
+
+    console.log(state);
   }
+  state.opMode = false;
 });
 
 document.querySelector(".clear").addEventListener("click", function() {
