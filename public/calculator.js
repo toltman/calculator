@@ -3,8 +3,6 @@ const operations = document.querySelectorAll(".op");
 const numbers = document.querySelectorAll(".num");
 const answer = document.querySelector(".answer");
 const equals = document.querySelector(".equals");
-let next_op = "";
-let arg1 = "";
 let state = {
   X: 0,
   Y: 0,
